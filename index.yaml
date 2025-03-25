@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  synthetic-slo-prober:
+  - apiVersion: v2
+    appVersion: v1.0.1
+    created: "2025-03-25T10:27:54.730599476Z"
+    description: A Helm chart for Kubernetes
+    digest: 996775e2e322c5bab9c61a4c3523a3da19e79aaea4ca71058f546eef677247db
+    name: synthetic-slo-prober
+    type: application
+    urls:
+    - https://github.com/pljeske/synthetic-slo-prober/releases/download/synthetic-slo-prober-1.0.1/synthetic-slo-prober-1.0.1.tgz
+    version: 1.0.1
+generated: "2025-03-25T10:27:54.730605797Z"
