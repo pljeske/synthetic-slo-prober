@@ -1,0 +1,5 @@
+endpoints:
+- name: github
+  url: https://github.com
+  interval: 30
+  timeout: 5
