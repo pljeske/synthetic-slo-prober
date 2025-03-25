@@ -32,7 +32,7 @@ def probe_endpoint(endpoint):
     Periodically send an HTTP GET to the endpoint URL. Update both
     the request counter and the duration histogram.
     """
-    name = endpoint['name']
+    name = endpoint.get('name', endpoint['url'])
     url = endpoint['url']
     interval = endpoint.get('interval', 60)
     timeout = endpoint.get('timeout', 10)
