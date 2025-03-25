@@ -20,6 +20,8 @@ endpoints:
   interval: 30
   timeout: 5
 
+extraManifests: []
+
 serviceAccount:
   create: true
   automount: false
