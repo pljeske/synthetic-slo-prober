@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "helm.name" -}}
+{{- define "synthetic-slo-prober.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "helm.fullname" -}}
+{{- define "synthetic-slo-prober.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "helm.chart" -}}
+{{- define "synthetic-slo-prober.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "helm.labels" -}}
-helm.sh/chart: {{ include "helm.chart" . }}
-{{ include "helm.selectorLabels" . }}
+{{- define "synthetic-slo-prober.labels" -}}
+helm.sh/chart: {{ include "synthetic-slo-prober.chart" . }}
+{{ include "synthetic-slo-prober.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "helm.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "helm.name" . }}
+{{- define "synthetic-slo-prober.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "synthetic-slo-prober.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "helm.serviceAccountName" -}}
+{{- define "synthetic-slo-prober.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "helm.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "synthetic-slo-prober.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
